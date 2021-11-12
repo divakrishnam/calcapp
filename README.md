@@ -1,3 +1,3 @@
 # Calculator App
 
-[![divakrishnam](https://circleci.com/gh/divakrishnam/calcapp.svg?style=svg)](https://circleci.com/gh/divakrishnam/calcapp)
+[![CircleCI](https://circleci.com/gh/divakrishnam/calcapp/tree/master.svg?style=shield)](https://circleci.com/gh/divakrishnam/calcapp/tree/master)
