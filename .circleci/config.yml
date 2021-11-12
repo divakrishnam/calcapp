@@ -8,12 +8,12 @@ jobs:
       - checkout
       - run:
           name: install-npm
-          command: 'sudo npm install -g npm@latest'
+          command: 'sudo npm install -g npm@latest && npm install -g codecov'
       - restore_cache: # special step to restore the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-dependencies
-          command: npm install && npm install -g codecov
+          command: npm install
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
