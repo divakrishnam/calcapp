@@ -21,3 +21,16 @@ jobs:
       - run:
           name: run coverage
           command: npm test -- --coverage && codecov
+  
+  test:
+    docker:
+      - image: circleci/node:14.17.6
+    steps:
+      - checkout
+      - run: npm test
+
+workflows:
+  build_and_test:
+    jobs:
+      - build
+      - test
