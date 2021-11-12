@@ -7,13 +7,24 @@ orbs:
   node: circleci/node@4.7
   codecov: codecov/codecov@1.0.2
 
+jobs:
+  test:
+    docker:
+      - image: circleci/node:10-browsers
+    steps:
+      - checkout
+      - run:
+          name: run coverage
+          command: npm test -- --coverage && codecov
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   sample: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test:
+      
+      - test:
           # This is the node version to use for the `cimg/node` tag
           # Relevant tags can be found on the CircleCI Developer Hub
           # https://circleci.com/developer/images/image/cimg/node
@@ -21,10 +32,7 @@ workflows:
           # If you are using yarn, change the line below from "npm" to "yarn"
           pkg-manager: npm
 
-          steps:
-            - run:
-                name: run coverage
-                command: npm test -- --coverage && codecov
+          
             # - codecov/upload:
             #     file: './coverage/clover.xml'
             #     token: a7a5df63-codcov-token-4278vh38
