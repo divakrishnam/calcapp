@@ -11,4 +11,4 @@ jobs:
       - checkout
       - run:
           name: run coverage
-          command: npm test -- --coverage && codecov
+          command: npm install && npm test -- --coverage && codecov
