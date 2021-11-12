@@ -1,8 +1,10 @@
 const add = (a, b) => {
   if (isNaN(a) || isNaN(b)) return false;
+
   if (Number.isInteger(a) || Number.isInteger(b)) {
     return parseFloat(a) + parseFloat(b);
   }
+  
   return parseInt(a) + parseInt(b);
 };
 
